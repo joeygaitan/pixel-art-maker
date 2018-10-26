@@ -41,7 +41,6 @@ brown.addEventListener("click", function(){
 });
 
 function makeGrid() {
-    console.log('hello')
     let w, h;
     w = 10;
     h = 10;
@@ -53,7 +52,13 @@ function makeGrid() {
             let td = document.createElement('td');
             document.querySelector('#pixel_canvas').appendChild(td);
             td.addEventListener('click', function(e){
-                e.target.classList.toggle(color);
+                
+                if(e.target.classList.contains(color)){
+                    e.target.classList = ''
+                }
+                else {
+                    e.target.classList = color;
+                }
             })  
         }
     }
